@@ -26,10 +26,14 @@ function ToDo({ todo, completeToDo, removeToDo, updateToDo }) {
   return (
     todo.map((e, i) => (
       <div
-        className={ e.iscomplete ? 'todo-row complete': 'todo-row' }
+        className={ e.isComplete ? 'todo-row complete': 'todo-row' }
         key={ i }
       >
-        <div key={ e.id } onClick={ () => completeToDo(e.id) }>
+        <div
+          className='text-task'
+          key={ e.id }
+          onClick={ () => completeToDo(e.id) }
+        >
           { e.text }
         </div>
         <div className='icons'>

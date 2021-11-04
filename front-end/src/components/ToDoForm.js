@@ -17,11 +17,15 @@ function TodoForm(props) {
   
   const handleSubmit = (e) => {
     e.preventDefault();
-
-    props.onSubmit({
-      id: Math.floor(Math.random() * 10000),
+    // console.log(props.edit.id, e.target.innerText);
+    const value = {
+      id: e.target.innerText === 'Update' ? props.edit.id : Math.floor(Math.random() * 10000),
       text: input,
-    });
+    };
+
+    props.onSubmit(value);
+    // const getLocal = JSON.parse(localStorage.getItem('toDo'));
+    // localStorage.setItem('toDo', JSON.stringify([...getLocal, value]));
 
     setInput('');
   };
@@ -32,7 +36,7 @@ function TodoForm(props) {
         <>
           <input
             type='text'
-            name='text'
+            name='textEdit'
             placeholder='Update the task here'
             className='todo-input edit'
             value={ input }
@@ -52,7 +56,12 @@ function TodoForm(props) {
             onChange={ handleChange }
             ref={ inputRef }
             />
-          <button className='todo-button' type='submit'>New Task</button>
+          <button
+            className='todo-button'
+            type='submit'
+          >
+            New Task
+          </button>
         </>
       ) }
     </form>

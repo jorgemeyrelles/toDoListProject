@@ -21,7 +21,7 @@ body {
   min-height: 600px;
   background: #161a2b;
   text-align: center;
-  margin: 128px auto;
+  margin: 80px auto;
   border-radius: 10px;
   padding-bottom: 32px;
 }
@@ -55,6 +55,13 @@ h1 {
   color: #e2e2e2;
 }
 
+.text-task:hover {
+  transform: scale(0.90);
+  font-weight: 900;
+  transition: all ease 0.5s;
+  cursor: pointer;
+}
+
 .todo-button {
   padding: 16px;
   border: none;
@@ -68,6 +75,37 @@ h1 {
   );
   color: #fff;
   text-transform: capitalize;
+}
+
+.clear {
+  width: 100px;
+  padding: 5px;
+  margin: 10px;
+  border-radius: 4px;
+  background: linear-gradient(
+    45deg,
+    rgba(47, 193, 140, 0.76) 45%,
+    rgba(97, 66, 194, 1) 100%
+  );
+}
+
+.save {
+  width: 200px;
+  padding: 5px;
+  margin: 10px;
+  border-radius: 4px;
+  background: linear-gradient(
+    -135deg,
+    rgba(47, 193, 140, 0.76) 55%,
+    rgba(97, 66, 194, 1) 100%
+  );
+}
+
+.save:hover {
+  transform: scale(1.05);
+  transition: all ease 0.5s;
+  cursor: pointer;
+  outline: 1px solid rgba(255, 84, 17, 1);
 }
 
 .todo-input.edit {
@@ -100,7 +138,7 @@ h1 {
     rgba(255, 118, 20, 1) 0%,
     rgba(255, 84, 17, 1) 100%
   );
-
+  font-size: 20px;
   padding: 16px;
   border-radius: 5px;
   width: 90%;
