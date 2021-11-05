@@ -1,6 +1,7 @@
 const {
   getAll,
   create,
+  byId,
 } = require('../models/taskModels');
 
 const getAllTasks = async () => {
@@ -13,4 +14,9 @@ const createNewSchedule = async ({ tasksDay, created, lastUpdate }) => {
   return data;
 };
 
-module.exports = { getAllTasks, createNewSchedule };
+const getById = async ({ id }) => {
+  const data = await byId({ id });
+  return data;
+};
+
+module.exports = { getAllTasks, createNewSchedule, getById };

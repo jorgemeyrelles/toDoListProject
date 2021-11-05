@@ -57,6 +57,7 @@ function ToDoList() {
 
   const sendToDb = () => {
     addTask(JSON.parse(localStorage.getItem('toDo')));
+    localStorage.setItem('todoId', JSON.stringify(addTask(JSON.parse(localStorage.getItem('toDo')))));
   };
 
   return (
