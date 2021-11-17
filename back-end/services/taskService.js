@@ -2,6 +2,7 @@ const {
   getAll,
   create,
   byId,
+  editOne,
 } = require('../models/taskModels');
 
 const getAllTasks = async () => {
@@ -9,8 +10,8 @@ const getAllTasks = async () => {
   return data;
 };
 
-const createNewSchedule = async ({ tasksDay, created, lastUpdate }) => {
-  const data = await create({ tasksDay, created, lastUpdate });
+const createNewSchedule = async ({ tasksDay, created, lastUpdate, _id }) => {
+  const data = await create({ tasksDay, created, lastUpdate, _id });
   return data;
 };
 
@@ -19,4 +20,13 @@ const getById = async ({ id }) => {
   return data;
 };
 
-module.exports = { getAllTasks, createNewSchedule, getById };
+const editOneTask = async ({ id, taskEdited, _id, lastUpdate }) => {
+  // if (role === 'admin') {
+  //   const data = await editOneAdmin({ id, recipeEdited });
+  //   return data;
+  // }
+  const data = await editOne({ id, taskEdited, _id });
+  return data;
+};
+
+module.exports = { getAllTasks, createNewSchedule, getById, editOneTask };

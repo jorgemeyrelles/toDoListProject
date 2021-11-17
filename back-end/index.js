@@ -2,7 +2,9 @@ const express = require('express');
 const cors = require('cors');
 const bodyParser = require('body-parser');
 global.TextEncoder = require("util").TextEncoder;
+
 const taskRoutes = require('./routes/taskRoutes');
+const userRoutes = require('./routes/userRoutes');
 
 const app = express();
 app.use(bodyParser.json());
@@ -17,5 +19,7 @@ app.get('/', (_request, response) => {
 });
 
 app.use('/home', taskRoutes);
+app.use('/register', userRoutes);
+// app.use('/login', loginRoutes);
 
 app.listen(PORT, () => console.log(`Servidor rodando -> ${PORT}`));
